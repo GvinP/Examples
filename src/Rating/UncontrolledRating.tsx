@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import starGold from '../starGold.svg'
-import starGrey from '../starGrey.svg'
+import starGold from './starGold.svg'
+import starGrey from './starGrey.svg'
 import style from './Rating.module.css'
 
 type StarPropsType = {
@@ -27,10 +27,6 @@ export const UncontrolledRating = () => {
 
 
 const Star = (props: StarPropsType) => {
-    const onClickHandle = () => {
-        props.callBack()
-    }
-    return props.selected ?
-        <img className={style.star} src={starGold} width={30} height={30} onClick={() => onClickHandle()}/>
-        : <img className={style.star} src={starGrey} width={30} height={30} onClick={() => onClickHandle()}/>
+    return <img className={style.star} src={props.selected ? starGold : starGrey} width={30} height={30}
+                onClick={props.callBack}/>
 };
